@@ -18,3 +18,13 @@
 @import url(../blocks/element/__like-button/element__like-button.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__coopyright.css);
+@import url(../blocks/popup-edit/popup-edit.css);
+@import url(../blocks/popup-edit/__container/popup-edit__container.css);
+@import url(../blocks/popup-edit/__close-button/popup-edit__close-button.css);
+@import url(../blocks/popup-edit/__title/popup-edit__title.css);
+@import url(../blocks/popup-edit/__form/popup-edit__form.css);
+@import url(../blocks/popup-edit/__input/popup-edit__input.css);
+@import url(../blocks/popup-edit/__name/popup-edit__name.css);
+@import url(../blocks/popup-edit/__description/popup-edit__description.css);
+@import url(../blocks/popup-edit/__submit-button/popup-edit__submit-button.css);
+@import url(../blocks/popup-edit/__overlay/popup-edit__overlay.css);
