@@ -5,3 +5,11 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+@media screen and (max-width: 918px) {
+  .profile {
+    margin: 42px auto 36px;
+    width: calc(100% - 38px);
+    flex-direction: column;
+  }
+}
