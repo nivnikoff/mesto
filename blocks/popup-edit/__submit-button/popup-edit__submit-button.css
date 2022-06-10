@@ -9,6 +9,7 @@
   color: #FFFFFF;
   border-radius: 2px;
   transition: opacity .5s linear;
+  cursor: pointer;
 }
     
 .popup-edit__submit-button:hover {

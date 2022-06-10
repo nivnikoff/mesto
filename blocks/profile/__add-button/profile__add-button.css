@@ -10,6 +10,7 @@
   border-radius: 2px;
   margin-left: auto;
   transition: opacity .5s linear;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {
