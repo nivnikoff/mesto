@@ -1,3 +1,9 @@
 .popup-edit__form {
-  padding-top: 54px; 
+  padding-top: 48px; 
+}
+
+@media screen and (max-width: 550px) {
+  .popup-edit__form {
+    padding-top: 75px;
+  }
 }
