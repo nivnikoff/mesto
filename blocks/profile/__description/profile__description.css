@@ -12,11 +12,13 @@
 @media screen and (max-width: 918px) {
   .profile__description {
     justify-self: center;
+    max-width: 519px;
   }
 }
 
 @media screen and (max-width: 550px) {
   .profile__description {
+    max-width: 254px;
     font-size: 14px;
     line-height: 0.82;
   }

@@ -25,7 +25,6 @@
 @import url(../blocks/popup-edit/__title/popup-edit__title.css);
 @import url(../blocks/popup-edit/__form/popup-edit__form.css);
 @import url(../blocks/popup-edit/__input/popup-edit__input.css);
-@import url(../blocks/popup-edit/__name/popup-edit__name.css);
-@import url(../blocks/popup-edit/__description/popup-edit__description.css);
+@import url(../blocks/popup-edit/__input-text/popup-edit__input-text.css);
 @import url(../blocks/popup-edit/__submit-button/popup-edit__submit-button.css);
 @import url(../blocks/popup-edit/__overlay/popup-edit__overlay.css);

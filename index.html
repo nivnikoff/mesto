@@ -36,7 +36,7 @@
         <img src="./images/PriokskieZori.jpg" alt="Приокские Зори" class="element__pic">
         <div class="element__info">
           <h2 class="element__name">Приокские Зори</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button"></button>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         <img src="./images/Adigeya.jpg" alt="Адыгея" class="element__pic">
         <div class="element__info">
           <h2 class="element__name">Адыгея</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button"></button>
         </div>
       </div>
 
@@ -52,7 +52,7 @@
         <img src="./images/KrasnodarskiyKray.jpg" alt="Краснодарский Край" class="element__pic">
         <div class="element__info">
           <h2 class="element__name">Краснодарский Край</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button"></button>
         </div>
       </div>
 
@@ -60,7 +60,7 @@
         <img src="./images/BlackSea.jpg" alt="Чёрное Море" class="element__pic">
         <div class="element__info">
           <h2 class="element__name">Чёрное Море</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button"></button>
         </div>
       </div>
 
@@ -68,7 +68,7 @@
         <img src="./images/Gagra.jpg" alt="Гагра" class="element__pic">
         <div class="element__info">
           <h2 class="element__name">Гагра</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button"></button>
         </div>
       </div>
 
@@ -76,7 +76,7 @@
         <img src="./images/Novokosino.jpg" alt="Новокосино" class="element__pic">
         <div class="element__info">
           <h2 class="element__name">Новокосино</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button"></button>
         </div>
       </div>
 
@@ -90,12 +90,12 @@
 
   <section class="popup-edit">
     <div class="popup-edit__container">
-      <button class="popup-edit__close-button"></button>
+      <button type="button" class="popup-edit__close-button"></button>
       <h2 class="popup-edit__title">Редактировать профиль</h2>
-      <form class="popup-edit__form">
+      <form name="edit" class="popup-edit__form">
         <fieldset class="popup-edit__input">
-          <input type="text" value="Константин Нивников" class="popup-edit__name">
-          <input type="text" value="Студент Яндекс.Практикум" class="popup-edit__description">
+          <input name="name" type="text" value="Константин Нивников" class="popup-edit__input-text popup-edit__input-text_name">
+          <input name="description" type="text" value="Студент Яндекс.Практикум" class="popup-edit__input-text popup-edit__input-text_description">
           <button type="submit" class="popup-edit__submit-button">Сохранить</button>
       </fieldset>
       </form>
