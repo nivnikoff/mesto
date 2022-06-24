@@ -44,8 +44,8 @@
       <h2 class="popup-edit__title">Редактировать профиль</h2>
       <form name="edit" class="popup-edit__form">
         <fieldset class="popup-edit__input">
-          <input name="name" type="text" value="Константин Нивников" class="popup-edit__input-text popup-edit__input-text_type_name">
-          <input name="description" type="text" value="Студент Яндекс.Практикум" class="popup-edit__input-text popup-edit__input-text_type_description">
+          <input name="name" type="text" placeholder='Имя' value="Константин Нивников" class="popup-edit__input-text popup-edit__input-text_type_name">
+          <input name="description" type="text" placeholder='Деятельность' value="Студент Яндекс.Практикум" class="popup-edit__input-text popup-edit__input-text_type_description">
           <button type="submit" class="popup-edit__submit-button">Сохранить</button>
       </fieldset>
       </form>
@@ -59,8 +59,8 @@
       <h2 class="popup-add__title">Новое место</h2>
       <form name="add" class="popup-add__form">
         <fieldset class="popup-add__input">
-          <input name="name" type="text" placeholder="Название" class="popup-add__input-text popup-add__input-text_type_name">
-          <input name="description" type="url" placeholder="Ссылка на картинку" class="popup-add__input-text popup-add__input-text_type_url">
+          <input name="name" type="text" placeholder="Название" class="popup-add__input-text popup-add__input-text_type_name" required>
+          <input name="description" type="url" placeholder="Ссылка на картинку" class="popup-add__input-text popup-add__input-text_type_url" required>
           <button type="submit" class="popup-add__submit-button">Создать</button>
       </fieldset>
       </form>

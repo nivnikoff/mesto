@@ -112,7 +112,8 @@ function addFormSubmitHandler (evt) {
   elementsCard.querySelector('.element__pic').alt = nameAddInput.value;
 
   elementsCard.querySelector('.element__like-button').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__like-button_active')});
+    evt.target.classList.toggle('element__like-button_active')
+  });
 
   elementsCard.querySelector('.element__delete-button').addEventListener('click', function () {
     elementsCard.remove();
