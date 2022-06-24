@@ -45,14 +45,19 @@ const initialCards = [
 ];
 
 window.onload = initialCards.forEach(function (element) {
-  const elementsCard = elementsTemplate.cloneNode(true);
+  const elementsCard = elementsTemplate.querySelector('.element').cloneNode(true);
 
   elementsCard.querySelector('.element__name').textContent = element.name;
   elementsCard.querySelector('.element__pic').src = element.link;
   elementsCard.querySelector('.element__pic').alt = element.name;
 
   elementsCard.querySelector('.element__like-button').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__like-button_active')});
+    evt.target.classList.toggle('element__like-button_active')
+  });
+
+  elementsCard.querySelector('.element__delete-button').addEventListener('click', function () {
+    elementsCard.remove();
+  });
 
   elementsList.prepend(elementsCard);
 });
@@ -84,7 +89,7 @@ function editFormSubmitHandler (evt) {
 
 function addFormSubmitHandler (evt) {
   evt.preventDefault();
-  const elementsCard = elementsTemplate.cloneNode(true);
+  const elementsCard = elementsTemplate.querySelector('.element').cloneNode(true);
 
   elementsCard.querySelector('.element__name').textContent = nameAddInput.value;
   elementsCard.querySelector('.element__pic').src = linkAddInput.value;
@@ -93,10 +98,9 @@ function addFormSubmitHandler (evt) {
   elementsCard.querySelector('.element__like-button').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like-button_active')});
 
-  // elementsCard.querySelector('.element__delete-button').addEventListener('click', function () {
-  //   const card = ('.element');
-  //   card.remove();
-  // });
+  elementsCard.querySelector('.element__delete-button').addEventListener('click', function () {
+    elementsCard.remove();
+  });
 
   elementsList.prepend(elementsCard);
   popupAdd.classList.remove('popup-add_opened');
