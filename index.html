@@ -38,43 +38,43 @@
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <section class="popup-edit">
-    <div class="popup-edit__container">
-      <button type="button" class="popup-edit__close-button"></button>
-      <h2 class="popup-edit__title">Редактировать профиль</h2>
-      <form name="edit" class="popup-edit__form">
-        <fieldset class="popup-edit__input">
-          <input name="name" type="text" placeholder='Имя' value="Константин Нивников" class="popup-edit__input-text popup-edit__input-text_type_name">
-          <input name="description" type="text" placeholder='Деятельность' value="Студент Яндекс.Практикум" class="popup-edit__input-text popup-edit__input-text_type_description">
-          <button type="submit" class="popup-edit__submit-button">Сохранить</button>
+  <section class="popup popup_type_edit">
+    <div class="popup__container-form">
+      <button type="button" class="popup__close-button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form name="edit" class="popup__form">
+        <fieldset class="popup__input">
+          <input name="name" type="text" placeholder='Имя' value="Константин Нивников" class="popup__input-text popup__input-text_type_name">
+          <input name="description" type="text" placeholder='Деятельность' value="Студент Яндекс.Практикум" class="popup__input-text popup__input-text_type_description">
+          <button type="submit" class="popup__submit-button">Сохранить</button>
       </fieldset>
       </form>
     </div>
-    <div class="popup-edit__overlay"></div>
+    <div class="popup__overlay"></div>
   </section>
 
-  <section class="popup-add">
-    <div class="popup-add__container">
-      <button type="button" class="popup-add__close-button"></button>
-      <h2 class="popup-add__title">Новое место</h2>
-      <form name="add" class="popup-add__form">
-        <fieldset class="popup-add__input">
-          <input name="name" type="text" placeholder="Название" class="popup-add__input-text popup-add__input-text_type_name" required>
-          <input name="description" type="url" placeholder="Ссылка на картинку" class="popup-add__input-text popup-add__input-text_type_url" required>
-          <button type="submit" class="popup-add__submit-button">Создать</button>
+  <section class="popup popup_type_add">
+    <div class="popup__container-form">
+      <button type="button" class="popup__close-button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form name="add" class="popup__form">
+        <fieldset class="popup__input">
+          <input name="place" type="text" placeholder="Название" class="popup__input-text popup__input-text_type_place" required>
+          <input name="link" type="url" placeholder="Ссылка на картинку" class="popup__input-text popup__input-text_type_link" required>
+          <button type="submit" class="popup__submit-button">Создать</button>
       </fieldset>
       </form>
     </div>
-    <div class="popup-add__overlay"></div>
+    <div class="popup__overlay"></div>
   </section>
 
-  <section class="popup-img">
-    <div class="popup-img__container">
-      <button type="button" class="popup-img__close-button"></button>
-      <img class="popup-img__image">
-      <h2 class="popup-img__name"></h2>
+  <section class="popup popup_type_img">
+    <div class="popup__container-img">
+      <button type="button" class="popup__close-button"></button>
+      <img class="popup__image">
+      <h2 class="popup__place"></h2>
     </div>
-    <div class="popup-img__overlay"></div>
+    <div class="popup__overlay popup__overlay_type_img"></div>
   </section>
 
 </div>
