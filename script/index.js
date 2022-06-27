@@ -76,9 +76,9 @@ const createCard = (data) => {
   });
 
   cardPic.addEventListener('click', function () {
-    popupImgPic.src = cardPic.src;
-    popupImgPic.alt = cardPic.alt;
-    popupImgPlace.textContent = cardName.textContent;
+    popupImgPic.src = data.link;
+    popupImgPic.alt = data.name;
+    popupImgPlace.textContent = data.name;
     setPopupOpen(popupImg);
   });
 
