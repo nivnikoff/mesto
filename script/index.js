@@ -29,12 +29,10 @@ const elementsTemplate = document.querySelector('#element-template').content;
 const elementsList = document.querySelector('.elements');
 
 const popupImg = document.querySelector('.popup_type_img');
-const closeImgButton = popupImg.querySelector('.popup__close-button');
 const popupImgPic = popupImg.querySelector('.popup__image');
 const popupImgPlace = popupImg.querySelector('.popup__place');
 
 const popupEdit = document.querySelector('.popup_type_edit');
-const closeEditButton = popupEdit.querySelector('.popup__close-button');
 const nameEditInput = popupEdit.querySelector('.popup__input-text_type_name');
 const descriptionEditInput = popupEdit.querySelector('.popup__input-text_type_description');
 const editFormElement = popupEdit.querySelector('.popup__form');
@@ -45,7 +43,6 @@ const nameProfile = document.querySelector(".profile__name");
 const descriptionProfile = document.querySelector(".profile__description");
 
 const popupAdd = document.querySelector('.popup_type_add');
-const closeAddButton = popupAdd.querySelector('.popup__close-button');
 const addFormElement = popupAdd.querySelector('.popup__form');
 
 const setPopupOpen = (popupElement) => {
@@ -124,10 +121,40 @@ editButton.addEventListener('click', () => {
   setPopupOpen(popupEdit);
 });
 editFormElement.addEventListener('submit', editFormSubmitHandler);
-closeEditButton.addEventListener('click', () => setPopupClose(popupEdit));
 
 addButton.addEventListener('click', () => setPopupOpen(popupAdd));
 addFormElement.addEventListener('submit', addFormSubmitHandler);
-closeAddButton.addEventListener('click', () => setPopupClose(popupAdd));
 
-closeImgButton.addEventListener('click', () => setPopupClose(popupImg));
+// popupImg.addEventListener('click', (evt) => {
+//   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
+//     setPopupClose(popupImg);
+//   }
+// });
+
+// popupEdit.addEventListener('click', (evt) => {
+//   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
+//     setPopupClose(popupEdit);
+//   } 
+// });
+
+// popupAdd.addEventListener('click', (evt) => {
+//   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
+//     setPopupClose(popupAdd);
+//   }
+// });
+
+document.addEventListener('click', (evt) => {
+  if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
+    setPopupClose(popupImg);
+    setPopupClose(popupEdit);
+    setPopupClose(popupAdd);
+  }
+});
+
+document.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape'){
+    setPopupClose(popupImg);
+    setPopupClose(popupEdit);
+    setPopupClose(popupAdd);
+  }
+});
