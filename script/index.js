@@ -125,36 +125,26 @@ editFormElement.addEventListener('submit', editFormSubmitHandler);
 addButton.addEventListener('click', () => setPopupOpen(popupAdd));
 addFormElement.addEventListener('submit', addFormSubmitHandler);
 
-// popupImg.addEventListener('click', (evt) => {
-//   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
-//     setPopupClose(popupImg);
-//   }
-// });
-
-// popupEdit.addEventListener('click', (evt) => {
-//   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
-//     setPopupClose(popupEdit);
-//   } 
-// });
-
-// popupAdd.addEventListener('click', (evt) => {
-//   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
-//     setPopupClose(popupAdd);
-//   }
-// });
-
 document.addEventListener('click', (evt) => {
   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
-    setPopupClose(popupImg);
-    setPopupClose(popupEdit);
-    setPopupClose(popupAdd);
+    const closestPopup = evt.target.closest('.popup');
+    if (closestPopup.classList.contains('popup_type_edit')) {
+      setPopupClose(popupEdit);
+    };
+    if (closestPopup.classList.contains('popup_type_add')) {
+      setPopupClose(popupAdd);
+    };
+    if (closestPopup.classList.contains('popup_type_img')) {
+      setPopupClose(popupImg);
+    }; 
   }
 });
 
 document.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape'){
-    setPopupClose(popupImg);
-    setPopupClose(popupEdit);
-    setPopupClose(popupAdd);
+    const closingPopup = document.querySelector('.popup_opened');
+    if (closingPopup) {
+    setPopupClose(closingPopup);
+  }
   }
 });
