@@ -35,7 +35,7 @@ const popupImgPlace = popupImg.querySelector('.popup__place');
 const popupEdit = document.querySelector('.popup_type_edit');
 const nameEditInput = popupEdit.querySelector('.popup__input-text_type_name');
 const descriptionEditInput = popupEdit.querySelector('.popup__input-text_type_description');
-const editFormElement = popupEdit.querySelector('.popup__form');
+const editForm = popupEdit.querySelector('.popup__form');
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
@@ -43,7 +43,7 @@ const nameProfile = document.querySelector(".profile__name");
 const descriptionProfile = document.querySelector(".profile__description");
 
 const popupAdd = document.querySelector('.popup_type_add');
-const addFormElement = popupAdd.querySelector('.popup__form');
+const addForm = popupAdd.querySelector('.popup__form');
 
 const setPopupOpen = (popupElement) => {
   popupElement.classList.add('popup_opened');
@@ -120,10 +120,10 @@ editButton.addEventListener('click', () => {
   descriptionEditInput.value = descriptionProfile.textContent;
   setPopupOpen(popupEdit);
 });
-editFormElement.addEventListener('submit', editFormSubmitHandler);
+editForm.addEventListener('submit', editFormSubmitHandler);
 
 addButton.addEventListener('click', () => setPopupOpen(popupAdd));
-addFormElement.addEventListener('submit', addFormSubmitHandler);
+addForm.addEventListener('submit', addFormSubmitHandler);
 
 document.addEventListener('click', (evt) => {
   if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){

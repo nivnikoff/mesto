@@ -10,6 +10,11 @@
   border: 1px solid black;
   border-radius: 2px;
   opacity: 0.2;
+  cursor: default;
+}
+
+.popup__submit-button_disabled:hover {
+  opacity: 0.2;
 }
 
 @media screen and (max-width: 550px) {
