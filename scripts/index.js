@@ -136,7 +136,7 @@ document.addEventListener('click', (evt) => {
     };
     if (closestPopup.classList.contains('popup_type_img')) {
       setPopupClose(popupImg);
-    }; 
+    };
   }
 });
 
@@ -145,6 +145,6 @@ document.addEventListener('keydown', (evt) => {
     const closingPopup = document.querySelector('.popup_opened');
     if (closingPopup) {
     setPopupClose(closingPopup);
-  }
+  };
   }
 });
