@@ -37,18 +37,18 @@ const popupImgPlace = popupImg.querySelector('.popup__place');
 const popupEdit = document.querySelector('.popup_type_edit');
 const nameEditInput = popupEdit.querySelector('.popup__input-text_type_name');
 const descriptionEditInput = popupEdit.querySelector('.popup__input-text_type_description');
-const editForm = popupEdit.querySelector('.popup__form');
+const formEdit = popupEdit.querySelector('.popup__form');
 
-const editButton = document.querySelector('.profile__edit-button');
-const addButton = document.querySelector('.profile__add-button');
+const buttonEdit = document.querySelector('.profile__edit-button');
+const buttonAdd = document.querySelector('.profile__add-button');
 const nameProfile = document.querySelector(".profile__name");
 const descriptionProfile = document.querySelector(".profile__description");
 
 const popupAdd = document.querySelector('.popup_type_add');
-const addForm = popupAdd.querySelector('.popup__form');
+const formAdd = popupAdd.querySelector('.popup__form');
 const inputPlace = popupAdd.querySelector('.popup__input-text_type_place');
 const inputLink = popupAdd.querySelector('.popup__input-text_type_link');
-const addSubmitButton = popupAdd.querySelector('.popup__submit-button');
+const buttonAddSubmit = popupAdd.querySelector('.popup__submit-button');
 
 const settings = {
   formSelector: '.popup__form',
@@ -72,11 +72,15 @@ const renderCard = (card) => {
   elementsList.prepend(card);
 };
 
+const createCardInstance = (data) => {
+  const cardInstance = new Card (data, '#element-template');
+  const cardInstanceElement = cardInstance.generateCard();
+  renderCard(cardInstanceElement);
+} 
+
 const renderInitialCards = () => {
   initialCards.forEach((item) => {
-    const initialCard = new Card (item, '#element-template');
-    const cardElement = initialCard.generateCard();
-    renderCard(cardElement);
+    createCardInstance(item);
   });
 };
 
@@ -87,9 +91,7 @@ const renderNewCard = () => {
     name: inputPlace.value,
     link: inputLink.value
   };
-  const newCardNode = new Card (newCardData, '#element-template')
-  const newCardElement = newCardNode.generateCard();
-  renderCard(newCardElement);
+  createCardInstance(newCardData);
 }
 
 const editFormSubmitHandler = (evt) => {
@@ -103,49 +105,40 @@ const addFormSubmitHandler = (evt) => {
   evt.preventDefault();
   renderNewCard();
   setPopupClose(popupAdd);
-  addForm.reset();
-  addSubmitButton.setAttribute('disabled', 'disabled');
-  addSubmitButton.classList.add('popup__submit-button_disabled');
+  formAdd.reset();
+  buttonAddSubmit.setAttribute('disabled', 'disabled');
+  buttonAddSubmit.classList.add('popup__submit-button_disabled');
 };
 
-const formList = Array.from(document.querySelectorAll(settings.formSelector)).map(formElement => {
+const formList = Array.from(document.querySelectorAll(settings.formSelector)).forEach((formElement) => {
   const validatedForm = new FormValidator (settings, formElement);
   validatedForm.enableValidation();
   return validatedForm;
 });
 
-editButton.addEventListener('click', () => {
+buttonEdit.addEventListener('click', () => {
   nameEditInput.value = nameProfile.textContent;
   descriptionEditInput.value = descriptionProfile.textContent;
   setPopupOpen(popupEdit);
 });
-editForm.addEventListener('submit', editFormSubmitHandler);
+formEdit.addEventListener('submit', editFormSubmitHandler);
 
-addButton.addEventListener('click', () => setPopupOpen(popupAdd));
-addForm.addEventListener('submit', addFormSubmitHandler);
+buttonAdd.addEventListener('click', () => setPopupOpen(popupAdd));
+formAdd.addEventListener('submit', addFormSubmitHandler);
 
-document.addEventListener('mousedown', (evt) => {
-  if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
-    const closestPopup = evt.target.closest('.popup');
-    if (closestPopup.classList.contains('popup_type_edit')) {
-      setPopupClose(popupEdit);
+const popupList = Array.from(document.querySelectorAll('.popup')).forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if ((evt.target.classList.contains('popup__overlay')) || (evt.target.classList.contains('popup__close-button'))){
+      setPopupClose(popup);
     };
-    if (closestPopup.classList.contains('popup_type_add')) {
-      setPopupClose(popupAdd);
-    };
-    if (closestPopup.classList.contains('popup_type_img')) {
-      setPopupClose(popupImg);
-    };
-  }
+  });
 });
 
 const closeByEscape = (evt) => {
   if (evt.key === 'Escape'){
     const closingPopup = document.querySelector('.popup_opened');
-    if (closingPopup) {
     setPopupClose(closingPopup);
   };
-  }
 };
 
 export { settings, popupImg, popupImgPic, popupImgPlace, setPopupOpen };
