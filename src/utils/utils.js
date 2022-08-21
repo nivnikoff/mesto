@@ -1,27 +1,27 @@
 export const initialCards = [
     {
       place: 'Новокосино',
-      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/images/Novokosino.jpg'
+      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/src/images/Novokosino.jpg'
     },
     {
       place: 'Гагра',
-      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/images/Gagra.jpg'
+      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/src/images/Gagra.jpg'
     },
     {
       place: 'Чёрное Море',
-      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/images/BlackSea.jpg'
+      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/src/images/BlackSea.jpg'
     },
     {
       place: 'Краснодарский Край',
-      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/images/KrasnodarskiyKray.jpg'
+      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/src/images/KrasnodarskiyKray.jpg'
     },
     {
       place: 'Адыгея',
-      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/images/Adigeya.jpg'
+      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/src/images/Adigeya.jpg'
     },
     {
       place: 'Приокские Зори',
-      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/images/PriokskieZori.jpg'
+      link: 'https://raw.githubusercontent.com/nivnikoff/mesto/main/src/images/PriokskieZori.jpg'
     }
   ];
 

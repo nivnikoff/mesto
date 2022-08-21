@@ -1,30 +1,37 @@
-import './pages/index.css';
-import Card from './scripts/Card.js';
-import FormValidator from './scripts/FormValidator.js';
-import Section from './scripts/Section.js';
-import PopupWithImage from './scripts/PopupWithImage.js';
-import PopupWithForm from './scripts/PopupWithForm.js';
-import UserInfo from './scripts/UserInfo.js';
+import './index.css';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 import {
   initialCards,
   popupImgPic,
   popupImgPlace,
   nameEditInput,
   descriptionEditInput,
+  formEdit,
   buttonEdit,
   buttonAdd,
   nameProfile,
   descriptionProfile,
+  formAdd,
   settings
-} from './scripts/utils.js';
+} from '../utils/utils.js';
 
 // Валидация форм
 
-const formList = Array.from(document.querySelectorAll(settings.formSelector)).forEach((formElement) => {
-  const validatedForm = new FormValidator (settings, formElement);
-  validatedForm.enableValidation();
-  return validatedForm;
-});
+// const formList = Array.from(document.querySelectorAll(settings.formSelector)).forEach((formElement) => {
+//   const validatedForm = new FormValidator (settings, formElement);
+//   validatedForm.enableValidation();
+//   return validatedForm;
+// });
+
+const validatedEditForm = new FormValidator (settings, formEdit);
+validatedEditForm.enableValidation();
+const validatedAddForm = new FormValidator (settings, formAdd);
+validatedAddForm.enableValidation();
 
 // Экземпляр персональной информации
 
@@ -92,11 +99,14 @@ window.onload = renderInitialCards;
 // Слушатели кнопок
 
 buttonEdit.addEventListener('click', () => {
+  validatedEditForm.hideInputErrorMessages();
   nameEditInput.value = nameProfile.textContent;
   descriptionEditInput.value = descriptionProfile.textContent;
   popupEditUserInfo.open();
 });
 
 buttonAdd.addEventListener('click', () => {
+  validatedAddForm.hideInputErrorMessages();
+  validatedAddForm.toggleButtonState();
   popupAddCard.open();
 });
