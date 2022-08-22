@@ -14,19 +14,11 @@ import {
   formEdit,
   buttonEdit,
   buttonAdd,
-  nameProfile,
-  descriptionProfile,
   formAdd,
   settings
-} from '../utils/utils.js';
+} from '../utils/constants.js';
 
 // Валидация форм
-
-// const formList = Array.from(document.querySelectorAll(settings.formSelector)).forEach((formElement) => {
-//   const validatedForm = new FormValidator (settings, formElement);
-//   validatedForm.enableValidation();
-//   return validatedForm;
-// });
 
 const validatedEditForm = new FormValidator (settings, formEdit);
 validatedEditForm.enableValidation();
@@ -55,7 +47,6 @@ popupEditUserInfo.setEventListeners();
 const popupAddCard = new PopupWithForm ('.popup_type_add', 
   {
     handleFormSubmit: (card) => {
-    console.log(card)
     сardsList.addItem(createCardInstance(card));
   }
   }, 
@@ -100,8 +91,9 @@ window.onload = renderInitialCards;
 
 buttonEdit.addEventListener('click', () => {
   validatedEditForm.hideInputErrorMessages();
-  nameEditInput.value = nameProfile.textContent;
-  descriptionEditInput.value = descriptionProfile.textContent;
+  const {name, description} = userInfo.getUserInfo();
+  nameEditInput.value = name;
+  descriptionEditInput.value = description;
   popupEditUserInfo.open();
 });
 

@@ -43,7 +43,6 @@ export default class FormValidator {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
     }
   }
-
   _setEventListeners() {
     this.toggleButtonState();
     this._inputList.forEach((inputElement) => {
