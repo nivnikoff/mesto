@@ -89,6 +89,34 @@
     <div class="popup__overlay popup__overlay_type_img"></div>
   </section>
 
+  <section class="popup popup_type_confirm">
+    <div class="popup__container-form">
+      <button type="button" class="popup__close-button"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form name="confirm" class="popup__form" novalidate>
+          <button type="submit" class="popup__submit-button">Да</button>
+      </form>
+    </div>
+    <div class="popup__overlay"></div>
+  </section>
+
+  <section class="popup popup_type_avatar">
+    <div class="popup__container-form">
+      <button type="button" class="popup__close-button"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form name="avatar" class="popup__form" novalidate>
+        <fieldset class="popup__input">
+          <input name="link" type="url" placeholder="Ссылка на аватар" 
+          id="element-link" class="popup__input-text popup__input-text_type_link" 
+          required>
+          <span id="element-link-error" class="popup__error"></span>
+          <button type="submit" class="popup__submit-button">Сохранить</button>
+      </fieldset>
+      </form>
+    </div>
+    <div class="popup__overlay"></div>
+  </section>
+
 </div>
 
 <template id="element-template">
