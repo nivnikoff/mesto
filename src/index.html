@@ -48,7 +48,7 @@
           id="profile-name" class="popup__input-text popup__input-text_type_name" 
           minlength="2" maxlength="40" required>
           <span id="profile-name-error" class="popup__error"></span>
-          <input name="description" type="text" placeholder='Деятельность' value="Студент Яндекс.Практикум" 
+          <input name="about" type="text" placeholder='Деятельность' value="Студент Яндекс.Практикум" 
           id="profile-description" class="popup__input-text popup__input-text_type_description" 
           minlength="2" maxlength="200" required>
           <span id="profile-description-error" class="popup__error"></span>
@@ -65,7 +65,7 @@
       <h2 class="popup__title">Новое место</h2>
       <form name="add" class="popup__form" novalidate>
         <fieldset class="popup__input">
-          <input name="place" type="text" placeholder="Название" 
+          <input name="name" type="text" placeholder="Название" 
           id="element-place" class="popup__input-text popup__input-text_type_place" 
           minlength="2" maxlength="30" required>
           <span id="element-place-error" class="popup__error"></span>
@@ -94,7 +94,7 @@
       <button type="button" class="popup__close-button"></button>
       <h2 class="popup__title">Вы уверены?</h2>
       <form name="confirm" class="popup__form" novalidate>
-          <button type="submit" class="popup__submit-button">Да</button>
+        <button type="submit" class="popup__submit-button">Да</button>
       </form>
     </div>
     <div class="popup__overlay"></div>
@@ -106,10 +106,10 @@
       <h2 class="popup__title">Обновить аватар</h2>
       <form name="avatar" class="popup__form" novalidate>
         <fieldset class="popup__input">
-          <input name="link" type="url" placeholder="Ссылка на аватар" 
-          id="element-link" class="popup__input-text popup__input-text_type_link" 
+          <input name="avatar" type="url" placeholder="Ссылка на аватар" 
+          id="element-avatar" class="popup__input-text popup__input-text_type_avatar" 
           required>
-          <span id="element-link-error" class="popup__error"></span>
+          <span id="element-avatar-error" class="popup__error"></span>
           <button type="submit" class="popup__submit-button">Сохранить</button>
       </fieldset>
       </form>
