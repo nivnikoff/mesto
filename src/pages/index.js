@@ -112,11 +112,14 @@ popupEditAvatar.setEventListeners();
 
 // Наполнение страницы
 
+let userId = null;
+
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, initialCards]) => {
     console.log(userData);
     userInfo.setUserInfo(userData);
     userInfo.setUserAvatar(userData);
+    userId = userData._id;
 
     console.log(initialCards);
     сardsList.renderItems(initialCards);
@@ -132,7 +135,32 @@ const createCard = (data) => {
       handleCardClick: () => {
         popupWithImage.open(data.name, data.link);
       },
+      handleLikeClick: () => {
+        if (!cardInstance.isLiked()) {
+          api.addLike(cardInstance._id)
+          .then((data) => {
+            cardInstance.addLike();
+            cardInstance.countLike(data.likes);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+        } else {
+          api.removeLike(cardInstance._id)
+          .then((data) => {
+            cardInstance.removeLike();
+            cardInstance.countLike(data.likes);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+        }
+      },
+      handleDeleteClick: () => {
+        
+      }
     },
+    userId,
     '#element-template'
   );
   const cardInstanceElement = cardInstance.generateCard();
@@ -143,7 +171,7 @@ const сardsList = new Section (
   {
     items: [],
     renderer: (card) => {
-    сardsList.addItem(createCard(card));
+    сardsList.addItemAppend(createCard(card));
     }
   },
   '.elements'
