@@ -23,7 +23,9 @@ export default class Card {
     this._cardPic.alt = this._name;
     this._counterLike = this._card.querySelector('.element__like-counter');
     this._buttonLike = this._card.querySelector('.element__like-button');
+    this._buttonDelete = this._card.querySelector('.element__delete-button');
     this.countLike(this._likes);
+    this._removeButtonDelete();
     this._setEventListeners();
     return this._card;
   }
@@ -31,8 +33,8 @@ export default class Card {
     this._buttonLike.addEventListener('click', () => {
       this._handleLikeClick();
     });
-    this._card.querySelector('.element__delete-button').addEventListener('click', () => {
-        this._card.remove();
+    this._buttonDelete.addEventListener('click', () => {
+      this._handleDeleteClick();
     });
     this._cardPic.addEventListener('click', () => {
       this._handleCardClick();
@@ -55,5 +57,13 @@ export default class Card {
   }
   isLiked() {
     return this._likes.find(user => user._id === this._userId);
+  }
+  _removeButtonDelete() {
+    if (this._owner !== this._userId) {
+      this._buttonDelete.remove();
+    }
+  }
+  deleteCard() {
+    this._card.remove();
   }
 }

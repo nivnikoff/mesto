@@ -101,14 +101,21 @@ const popupEditAvatar = new PopupWithForm (
 );
 popupEditAvatar.setEventListeners();
 
-// const popupConfirm = new PopupWithConfirmation (
-//   '.popup_type_confirm',
-//   {
-//     handleFormSubmit: () => {}
-//   },
-// '.popup__form'  
-// );
-// popupEditAvatar.setEventListeners();
+const popupConfirm = new PopupWithConfirmation (
+  '.popup_type_confirm',
+  {
+    handleSubmit: (cardId, cardElement) => {
+      api.deleteCard(cardId)
+      .then(() => {
+        cardElement.deleteCard();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+  } 
+);
+popupConfirm.setEventListeners();
 
 // Наполнение страницы
 
@@ -157,7 +164,8 @@ const createCard = (data) => {
         }
       },
       handleDeleteClick: () => {
-        
+        popupConfirm.open();
+        popupConfirm.submitCardDelete(cardInstance._id, cardInstance);
       }
     },
     userId,
