@@ -1,6 +1,3 @@
-export const popupImgPic = document.querySelector('.popup__image');
-export const popupImgPlace = document.querySelector('.popup__place');
-
 export const popupEdit = document.querySelector('.popup_type_edit');
 export const nameEditInput = popupEdit.querySelector('.popup__input-text_type_name');
 export const descriptionEditInput = popupEdit.querySelector('.popup__input-text_type_description');

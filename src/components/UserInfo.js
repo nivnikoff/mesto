@@ -7,7 +7,7 @@ export default class UserInfo {
   getUserInfo() {
     const userInfo = {};
     userInfo.name = this._profileName.textContent;
-    userInfo.description = this._profileDescription.textContent;
+    userInfo.about = this._profileDescription.textContent;
     return userInfo;
   }
   setUserInfo(data) {

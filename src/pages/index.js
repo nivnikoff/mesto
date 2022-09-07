@@ -8,8 +8,6 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js'
 import UserInfo from '../components/UserInfo.js';
 import {
-  popupImgPic,
-  popupImgPlace,
   nameEditInput,
   descriptionEditInput,
   formEdit,
@@ -41,7 +39,7 @@ const userInfo = new UserInfo ('.profile__name', '.profile__description', '.prof
 
 // Экземплры попапов
 
-const popupWithImage = new PopupWithImage ('.popup_type_img', popupImgPic, popupImgPlace);
+const popupWithImage = new PopupWithImage ('.popup_type_img', '.popup__image', '.popup__place');
 popupWithImage.setEventListeners();
 
 const popupEditUserInfo = new PopupWithForm (
@@ -57,6 +55,9 @@ const popupEditUserInfo = new PopupWithForm (
       .catch((err) => {
         console.log(err);
       })
+      .finally(() => {
+        popupEditUserInfo.renderLoading(false);
+    })
     }
   }, 
 '.popup__form'
@@ -76,6 +77,9 @@ const popupAddCard = new PopupWithForm (
       .catch((err) => {
         console.log(err);
       })
+      .finally(() => {
+        popupAddCard.renderLoading(false);
+      })
     }
   }, 
 '.popup__form'
@@ -86,7 +90,7 @@ const popupEditAvatar = new PopupWithForm (
   '.popup_type_avatar',
   {
     handleFormSubmit: (data) => {
-      popupEditUserInfo.renderLoading(true);
+      popupEditAvatar.renderLoading(true);
       api.editAvatar(data)
       .then((res) => {
         userInfo.setUserAvatar(res);
@@ -94,6 +98,9 @@ const popupEditAvatar = new PopupWithForm (
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        popupEditAvatar.renderLoading(false);
       })
     }
   },
@@ -108,6 +115,7 @@ const popupConfirm = new PopupWithConfirmation (
       api.deleteCard(cardId)
       .then(() => {
         cardElement.deleteCard();
+        popupConfirm.close();
       })
       .catch((err) => {
         console.log(err);
@@ -177,7 +185,6 @@ const createCard = (data) => {
 
 const сardsList = new Section (
   {
-    items: [],
     renderer: (card) => {
     сardsList.addItemAppend(createCard(card));
     }
@@ -189,9 +196,9 @@ const сardsList = new Section (
 
 buttonEdit.addEventListener('click', () => {
   validatedEditForm.hideInputErrorMessages();
-  const {name, info} = userInfo.getUserInfo();
+  const {name, about} = userInfo.getUserInfo();
   nameEditInput.value = name;
-  descriptionEditInput.value = info;
+  descriptionEditInput.value = about;
   popupEditUserInfo.open();
 });
 

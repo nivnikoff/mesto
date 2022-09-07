@@ -43,7 +43,7 @@ export default class FormValidator {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
     }
   }
-  _setEventListeners() {
+  enableValidation() {
     this.toggleButtonState();
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
@@ -51,11 +51,5 @@ export default class FormValidator {
         this.toggleButtonState();
       });
     });
-  }
-  enableValidation() {
-    this._formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-    this._setEventListeners();
   }
 }
